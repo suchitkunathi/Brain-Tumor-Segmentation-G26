@@ -1,0 +1,9 @@
+tensorflow
+numpy
+pandas
+scikit-learn
+opencv-python
+tqdm
+patchify
+ipykernel
+-e .
