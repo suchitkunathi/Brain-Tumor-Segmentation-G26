@@ -21,7 +21,7 @@ git clone https://github.com/suchitkunathi/Brain-Tumor-Segmentation-G26.git
 ```
 Create Virtual Environment
 ```bash
-conda create -p venv python==3.8 -y
+conda create -p venv python==3.10 -y
 ```
 Install Dependencies
 ```bash
