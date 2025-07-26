@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Segmentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .image-preview {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Brain Tumor Segmentation</h2>
+        <p class="text-center">Upload an image of a brain scan for tumor segmentation.</p>
+
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="file" class="form-label">Choose Image</label>
+                <input type="file" class="form-control" id="file" name="file" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Upload Image</button>
+        </form>
+
+        <div id="image-preview" class="image-preview text-center mt-4" style="display: none;">
+            <h4>Preview</h4>
+            <img id="uploaded-image" src="" alt="Uploaded Image" class="img-fluid" style="max-width: 100%; max-height: 400px;">
+        </div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('file');
+        const preview = document.getElementById('image-preview');
+        const uploadedImage = document.getElementById('uploaded-image');
+
+        fileInput.addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    uploadedImage.src = event.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>

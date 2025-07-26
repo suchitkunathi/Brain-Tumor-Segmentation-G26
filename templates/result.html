@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segmentation Result</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .image-preview {
+            margin-top: 20px;
+        }
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Brain Tumor Segmentation Result</h2>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Original Image</h4>
+                <!-- Correct the src path for the original image -->
+                <img src="{{ url_for('static', filename=original_image) }}" alt="Original Image" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h4>Segmented Image</h4>
+                <!-- Correct the src path for the segmented image -->
+                <img src="{{ url_for('static', filename=segmented_image) }}" alt="Segmented Image" class="img-fluid">
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-primary">Upload Another Image</a>
+        </div>
+    </div>
+</body>
+</html>
